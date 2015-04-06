@@ -5,25 +5,27 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
-
-    public static final String MESSAGE = "com.mackittipat.myfirstapp.MESSAGE";
+public class DisplayMessageActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_display_message);
+
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MainActivity.MESSAGE);
+        TextView textView = (TextView) findViewById(R.id.lbl_message);
+        textView.setText(message);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_display_message, menu);
         return true;
     }
 
@@ -40,13 +42,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void sendMessage(View view) {
-        EditText editText = (EditText) findViewById(R.id.txt_message);
-        String message = editText.getText().toString();
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        intent.putExtra(MESSAGE, message);
-        startActivity(intent);
     }
 }
