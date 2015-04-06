@@ -7,7 +7,9 @@
 
     <TextView
         android:id="@+id/lbl_message"
+        android:text="@string/lbl_message"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="50dp" />
 
 </RelativeLayout>

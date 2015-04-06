@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -29,8 +30,17 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        TextView textView = (TextView) findViewById(R.id.lbl_message);
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
+            textView.setText("Search!!!");
+            return true;
+        } else if(id == R.id.action_settings) {
+            textView.setText("Setting!!!");
+            return true;
+        } else if(id == R.id.action_about) {
+            textView.setText("About!!!");
             return true;
         }
 
